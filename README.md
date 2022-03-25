@@ -10,11 +10,14 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
         > (flatten-1 '(a (b c) d))
         '(a b c d)
         
-        > (flatten-1 '(a (b (c) d) e))
-        '(a b (c) d e)
+        > (flatten-1 '((a) (b ((c) (d))) ((e f))))     
+        '(a b ((c) (d)) (e f))
         
-        > (flatten-1 '((a) (b (c) (d)) ((e f))))     
-        '(a b (c) (d) (e f))
+        > (flatten-1 (flatten-1 '((a) (b ((c) (d))) ((e f)))))
+        '(a b (c) (d) e f)
+        
+        > (flatten-1 (flatten-1 (flatten-1 '((a) (b ((c) (d))) ((e f))))))
+        '(a b c d e f)
         
 - `riffle` takes one or more lists and "riffles" (shuffles) their contents together in alternating fashion into one single list. E.g.,
 
@@ -36,6 +39,8 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
 
         > (wordle "SWEETLY" "TWENTYS")
         '(_ * * _ * + +)
+    
+    You may find it useful to use the [`string->list`](https://docs.racket-lang.org/reference/strings.html#%28def._%28%28quote._~23~25kernel%29._string-~3elist%29%29) function, which takes a string and returns a list of characters (which you can compare using `eq?`). You may also find [`for`](https://docs.racket-lang.org/reference/for.html) (or a variant) helpful, though not necessary.
   
 ## Part 2: Higher order functions
 
@@ -96,11 +101,11 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
             [else (+ 30 10)]))))
         22
         
-    You may choose to implement the `case` statement either by desugaring it to `if` expressions or by modifying the `eval` function directly. 
+    You may choose to implement the `case` statement either by desugaring it to `if` expressions or by modifying the `eval` function directly. If you choose to use desugaring, feel free to reuse your code from MP2.
 
 ## Testing
 
-We have provided you with test cases in "midterm-test.rkt". Feel free to add to and alter any and all tests, as we will be using our own test suite to evaluate your work.
+We have provided you with test cases in "midterm-test.rkt". Feel free to add to and alter any and all tests, as we will be using our own test suite to evaluate your work. You may also find it helpful to read through the tests for more insight into how your implementations should behave.
 
 Note that passing all the tests does not guarantee full credit! Partial credit may be awarded to implementations that fail tests. That said, code that fails to compile will receive little (if any) credit.
 
