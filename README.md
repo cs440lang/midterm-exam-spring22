@@ -102,6 +102,10 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
         22
         
     You may choose to implement the `case` statement either by desugaring it to `if` expressions or by modifying the `eval` function directly. If you choose to use desugaring, feel free to reuse your code from MP2.
+    
+## Implementation rules
+
+You may use any of the functions from Racket's base library, as described in the [Racket Guide](https://docs.racket-lang.org/guide/index.html) (and demonstrated in the [lecture source files](https://github.com/cs440lang/lectures/tree/completed)). You should *not* use any other libraries/modules. 
 
 ## Testing
 
