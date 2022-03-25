@@ -40,7 +40,7 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
         > (wordle "SWEETLY" "TWENTYS")
         '(_ * * _ * + +)
     
-    You may find it useful to use the [`string->list`](https://docs.racket-lang.org/reference/strings.html#%28def._%28%28quote._~23~25kernel%29._string-~3elist%29%29) function, which takes a string and returns a list of characters (which you can compare using `eq?`). You may also find [`for`](https://docs.racket-lang.org/reference/for.html) (or a variant) helpful, though not necessary.
+    You may wish to use the [`string->list`](https://docs.racket-lang.org/reference/strings.html#%28def._%28%28quote._~23~25kernel%29._string-~3elist%29%29) function, which takes a string and returns a list of characters (which you can compare using `eq?`). You may also find [`for`](https://docs.racket-lang.org/reference/for.html) (or a variant) helpful, though not necessary.
   
 ## Part 2: Higher order functions
 
