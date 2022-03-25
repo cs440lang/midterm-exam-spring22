@@ -26,7 +26,7 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
 
 - `wordle` takes two strings -- a solution and guess (a la [Wordle](https://www.nytimes.com/games/wordle/index.html) -- and returns a list of clues that indicate which characters in the guess are in the correct spot (`*`), which match a character from the solution but are in the incorrect spot (`+`), and which don't match any solution characters at all (`_`).
 
-    Correct-spot characters are given precedence, and incorrect-spot characters are matched from left to right. E.g.,
+    Correct-spot characters are given precedence, and incorrect-spot characters are matched from left to right. You should assume that the solution and guess are the same length. E.g.,
 
         > (wordle "CATCH" "PARCH")   
         '(_ * _ * *)
@@ -34,12 +34,12 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
         > (wordle "FASTER" "STREAK") 
         '(+ + + + + _)
 
-        > "SWEETLY" "TWENTYS") 
+        > (wordle "SWEETLY" "TWENTYS")
         '(_ * * _ * + +)
   
 ## Part 2: Higher order functions
 
-- `until`: takes a predicate `pred`, a function `fn`, and a starting value `x`, and returns the list of values (`x`, `fn x`, `fn (fn x)`, ...), terminating on the first value which satisfies `pred`. E.g.,
+- `until`: takes a predicate `pred`, a function `fn`, and a starting value `x`, and returns the list of values (`x`, `(fn x)`, `(fn (fn x))`, ...), terminating on the first value which satisfies `pred`. E.g.,
 
         > (until (lambda (x) (> x 100))
                  (lambda (x) (* 2 x))
@@ -60,17 +60,17 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
         
 - `stride`: a macro that takes a variable name `var`, a stride length `n`, a list `lst`, and an expression `expr`, and returns the list of values resulting from evaluating `expr` with `var` set to each `n`-th value from the `lst`. E.g.,
 
-> (stride x 2 '("hello" "how" "are" "you" "this" "fine" "day")
-          (string-upcase x))
-'("HELLO" "ARE" "THIS" "DAY")
+        > (stride x 2 '("hello" "how" "are" "you" "this" "fine" "day")
+                  (string-upcase x))
+        '("HELLO" "ARE" "THIS" "DAY")
 
-> (stride x 5 (range 30)
-          (sqr x))
-'(0 25 100 225 400 625)
+        > (stride x 5 (range 30)
+                  (sqr x))
+        '(0 25 100 225 400 625)
 
 ## Part 3: Interpreter modifications
 
-- For this part you will add a `case` expression to the interpreter you modified in MP2. A case expression has the following form:
+- For this part you will add a `case` expression to the same interpreter provided for MP2. A case expression has the following form:
 
         (case TEST-EXPR
             [INT-VAL1 EXPR1]
@@ -102,7 +102,7 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
 
 We have provided you with test cases in "midterm-test.rkt". Feel free to add to and alter any and all tests, as we will be using our own test suite to evaluate your work.
 
-Note that passing all the tests *does not guarantee full credit*! Partial credit may also be awarded by failing tests.
+Note that passing all the tests does not guarantee full credit! Partial credit may be awarded to implementations that fail tests. That said, code that fails to compile will receive little (if any) credit.
 
 ## Grading
 
