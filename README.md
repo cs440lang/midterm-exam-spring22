@@ -1,4 +1,4 @@
-CS 440 Midterm Exam (Take Home)
+CS 440 Midterm Exam (Take-Home)
 ===============================
 
 This midterm exam consists of 7 separate exercises --- 3 on recursion and lists, 3 on higher order functions, and 1 involving an addition to an interpreter. They are described below:
