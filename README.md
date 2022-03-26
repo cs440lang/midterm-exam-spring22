@@ -27,9 +27,9 @@ This midterm exam consists of 7 separate exercises --- 3 on recursion and lists,
         > (riffle (range 5) (range 6 10) (range 10 15))
         '(0 6 10 1 7 11 2 8 12 3 9 13 4 14)                         
 
-- `wordle` takes two strings -- a solution and guess (a la [Wordle](https://www.nytimes.com/games/wordle/index.html)) -- and returns a list of clues that indicate which characters in the guess are in the correct spot (`*`), which match a character from the solution but are in the incorrect spot (`+`), and which don't match any solution characters at all (`_`).
+- `wordle` takes two strings of the same length -- a solution and guess (a la [Wordle](https://www.nytimes.com/games/wordle/index.html)) -- and returns a list of clue symbols in the set {`*`, `+`, `_`}. Each clue symbol is related to the character in the same position in the guess string, and indicates whether the latter matches the solution character in the same spot (`*`), matches a character from the solution but is in the wrong spot (`+`), or doesn't match any characters in the solution at all (`_`).
 
-    Correct-spot characters are given precedence, and incorrect-spot characters are matched from left to right. You should assume that the solution and guess are the same length. E.g.,
+    When there are duplicate characters in the guess, correct-spot characters are matched first and incorrect-spot characters are matched from left to right. E.g.,
 
         > (wordle "CATCH" "PARCH")   
         '(_ * _ * *)
